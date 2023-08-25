@@ -22,9 +22,6 @@
                         <option>Choose a country</option>
                         @foreach ($countries as $country)
                             <option value="{{ $country->id }}" @selected($country->id == $city->country_id)>{{ $country->name }}</option>
-                        {{-- <option value="{{old('country_id',$country->id)==$country->id ? 'selected':''}}">{{ $country->name }}</option> --}}
-                            {{-- <option value="{{ $country->id }}" {{ $country->id == $country->id ? 'selected' : '' }}>{{ $country->name }}</option> --}}
-                            {{-- <option value="{{ $country->id }}">{{ $country->name }}</option> --}}
                         @endforeach
                     </select>
                     @error('country_id')
