@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AttendingEventController;
 use App\Http\Controllers\AttentingSystemController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DeleteCommentController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventIndexController;
@@ -38,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::resource('/cities', CityController::class);
+    Route::resource('/countries', CountryController::class);
     Route::resource('/events', EventController::class);
     Route::resource('/galleries', GalleryController::class);
 
