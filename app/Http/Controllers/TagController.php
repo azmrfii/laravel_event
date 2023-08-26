@@ -38,12 +38,12 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Tag $tag)
     {
-        //
+        return view('tags.show', compact('tag'));
     }
 
-    /**
+     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Tag $tag)
@@ -59,7 +59,7 @@ class TagController extends Controller
         $tag->update($request->validated());
         return redirect()->route('tags.index');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */

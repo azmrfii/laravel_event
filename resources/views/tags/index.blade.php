@@ -32,13 +32,15 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex space-x-2">
-                                        <a href="{{ route('tags.edit', $tag->id) }}"
+                                        <a href="{{ route('tags.show', $tag->slug) }}"
+                                            class="text-primary-400 hover:text-primary-600">Show</a>
+                                        <a href="{{ route('tags.edit', $tag->slug) }}"
                                             class="text-green-400 hover:text-green-600">Edit</a>
                                         <form method="POST" class="text-red-400 hover:text-red-600"
-                                            action="{{ route('tags.destroy', $tag->id) }}">
+                                            action="{{ route('tags.destroy', $tag->slug) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{ route('tags.destroy', $tag->slug) }}"
+                                            <a href="{{ route('tags.destroy', $tag->name) }}"
                                                 onclick="event.preventDefault();
                                             this.closest('form').submit();">
                                                 Delete

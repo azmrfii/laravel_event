@@ -38,7 +38,7 @@
                                     {{ $event->title }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $event->start_date }}
+                                    {{ $event->start_date->format('d/m/Y')}} - {{ $event->start_time }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $event->country->name }}
