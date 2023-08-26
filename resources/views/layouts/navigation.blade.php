@@ -40,6 +40,9 @@
                                 <x-dropdown-link :href="route('cities.index')">
                                     {{ __('City') }}
                                 </x-dropdown-link>
+                                <x-dropdown-link :href="route('tags.index')">
+                                    {{ __('Tag') }}
+                                </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
                     </div>

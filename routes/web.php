@@ -16,6 +16,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SavedEventController;
 use App\Http\Controllers\SavedEventSystemController;
 use App\Http\Controllers\StoreCommentController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestEventController;
 use App\Http\Controllers\WelcomeController;
 use App\Models\Country;
@@ -42,6 +43,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/cities', CityController::class);
     Route::resource('/countries', CountryController::class);
+    // Tag error?
+    Route::resource('/tags', TagController::class); 
+
     Route::resource('/events', EventController::class);
     Route::resource('/galleries', GalleryController::class);
 
