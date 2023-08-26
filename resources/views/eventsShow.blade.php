@@ -1,7 +1,7 @@
 <x-main-layout>
     <div class="m-2 p-2 flex justify-between">
         <h3 class="mb-4 text-2xl font-bold text-indigo-700">{{ $event->title }}</h3>
-        <div class="flex space-x-2">
+        <div class="flex space-x-2 text-white">
             From:
             <span class="mx-2">{{ $event->start_date->format('m/d/Y') }}</span> | <span
                 class="mx-2">{{ $event->end_date->format('m/d/Y') }}</span>
@@ -157,7 +157,6 @@
                                                 @method('DELETE')
                                                 <button
                                                     class="mt-6 rounded-lg bg-red-400 px-4 py-2 text-sm tracking-wider text-white outline-none hover:bg-red-300">Delete</button>
-
                                             </form>
                                         @endcan
                                     </div>

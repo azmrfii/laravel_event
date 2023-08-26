@@ -37,12 +37,13 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CreateEventRequest $request): RedirectResponse
+    public function store(CreateEventRequest $request, Event $event): RedirectResponse
     {
         if ($request->hasFile('image')) {
 
             $data = $request->validated();
-            $data['image'] = Storage::putFile('events', $request->file('image'));
+            $data['image'] = $request->file('image')->store('events', 'public');
+            // $data['image'] = Storage::putFile('events', 'public', $request->file('image'));
             $data['user_id'] = auth()->id();
             $data['slug'] = Str::slug($request->title);
 
@@ -52,6 +53,19 @@ class EventController extends Controller
         } else {
             return back();
         }
+
+        // if ($request->hasFile('image')) {
+        //     Event::create([
+        //         $data = $request->validated(),
+        //         'image' => $request->file('image')->store('events', 'public'),
+        //         $data['user_id'] = auth()->id(),
+        //         $data['slug'] = Str::slug($request->title),
+        //     ]);
+
+        //     $event->tags()->attach($request->tags);
+
+        //     return to_route('events.index');
+        // }
     }
 
 
@@ -73,7 +87,7 @@ class EventController extends Controller
         $data = $request->validated();
         if ($request->hasFile('image')) {
             Storage::delete($event->image);
-            $data['image'] = Storage::putFile('events', $request->file('image'));
+            $data['image'] = $request->file('image')->store('events', 'public');
         }
 
         $data['slug'] = Str::slug($request->title);

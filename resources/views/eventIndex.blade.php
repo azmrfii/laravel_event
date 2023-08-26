@@ -7,12 +7,12 @@
             <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
                 @foreach ($events as $event)
                     <div class="lg:flex bg-slate-100 rounded-md">
-                        <img class="object-cover w-full h-56 rounded-lg lg:w-64"
+                        <img class="object-cover w-full h-56 rounded-lg lg:64"
                             src="{{ asset('/storage/' . $event->image) }}" alt="{{ $event->title }}">
 
                         <div class="flex flex-col justify-between py-6 lg:mx-6">
                             <a href="{{ route('eventShow', $event->id) }}"
-                                class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
+                                class="text-xl font-semibold text-gray-800 hover:underline dark:text-dark ">
                                 {{ $event->title }}
                             </a>
 
